@@ -1,8 +1,13 @@
-import marshal, os
 import logging
+import marshal
+import os
+import sys
 
 import uncompyle2
 
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 GAME_ENTITES_PATH = r"D:\MyGames\Revelation\res\entities_2024_09_02"
 PROJECT_PATH = os.path.abspath(os.path.curdir)
@@ -35,13 +40,16 @@ def decompile(co, dest_path, src_path):
             logging.info("Decompiling {} to {}.".format(src_path, src_dest_file))
             uncompyle2.uncompyle("2.7", co, out=f)
         except:
-            logging.warning("Particially decompiled {}!".format(src_dest_file))
+            logging.warning("Particially decompiled {}".format(src_dest_file))
+            uncompyle2.uncompyle("2.7", co, out=f, showasm=True)
 
 add_dir("decompiled_src")
 os.chdir("decompiled_src")
 
 file_paths = get_file_paths(GAME_ENTITES_PATH)
-import sys
+if not file_paths:
+    print "The folder \"{}\" is empty or not exists".format(GAME_ENTITES_PATH)
+
 for i, file_path in enumerate(file_paths):
     print "[{}/{}] file - {}".format(i + 1, len(file_paths), file_path)
 
