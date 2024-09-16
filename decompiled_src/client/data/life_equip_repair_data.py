@@ -1,0 +1,28 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\client\data/life_equip_repair_data.o
+data = {(1, 9): {'lvMin': 1,
+          'lvMax': 9,
+          'fineFixItem': 381901,
+          'normalFixItem': 380901,
+          'spellTime': 1},
+ (10, 19): {'lvMin': 10,
+            'lvMax': 19,
+            'fineFixItem': 381901,
+            'normalFixItem': 380901,
+            'spellTime': 1},
+ (20, 29): {'lvMin': 20,
+            'lvMax': 29,
+            'fineFixItem': 381901,
+            'normalFixItem': 380901,
+            'spellTime': 1},
+ (30, 39): {'lvMin': 30,
+            'lvMax': 39,
+            'fineFixItem': 381902,
+            'normalFixItem': 380902,
+            'spellTime': 1},
+ (40, 60): {'lvMin': 40,
+            'lvMax': 60,
+            'fineFixItem': 381902,
+            'normalFixItem': 380902,
+            'spellTime': 1}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='tuple', vtype='dict')

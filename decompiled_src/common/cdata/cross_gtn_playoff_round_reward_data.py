@@ -1,0 +1,27 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\common\cdata/cross_gtn_playoff_round_reward_data.o
+data = {(1, 0): {'memberMailTemplateId': 628,
+          'leaderMailTemplateId': 629,
+          'leaderBonusId': 12672,
+          'groupBonusId': 19883,
+          'groupMailTemplateId': 627,
+          'memberBonusId': 19887},
+ (1, 1): {'memberMailTemplateId': 625,
+          'leaderMailTemplateId': 626,
+          'leaderBonusId': 12671,
+          'groupBonusId': 19882,
+          'groupMailTemplateId': 624,
+          'memberBonusId': 19886},
+ (2, 0): {'memberMailTemplateId': 628,
+          'leaderMailTemplateId': 629,
+          'leaderBonusId': 12676,
+          'groupBonusId': 19885,
+          'groupMailTemplateId': 627,
+          'memberBonusId': 19889},
+ (2, 1): {'memberMailTemplateId': 625,
+          'leaderMailTemplateId': 626,
+          'leaderBonusId': 12675,
+          'groupBonusId': 19884,
+          'groupMailTemplateId': 624,
+          'memberBonusId': 19888}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='tuple', vtype='dict')

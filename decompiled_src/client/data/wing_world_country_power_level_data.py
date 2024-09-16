@@ -1,0 +1,27 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\client\data/wing_world_country_power_level_data.o
+data = {1: {'opennessCityLevel': 1,
+     'power': 0,
+     'title': '1: Новое начало'},
+ 2: {'power': 1000,
+     'title': '2: Развитие'},
+ 3: {'opennessCityLevel': 2,
+     'power': 2000,
+     'title': '3: Успехи'},
+ 4: {'power': 3000,
+     'title': '4: Просветление'},
+ 5: {'opennessCityLevel': 3,
+     'power': 4000,
+     'title': '5: Созерцание'},
+ 6: {'power': 5000,
+     'title': '6: Усиление'},
+ 7: {'opennessCityLevel': 4,
+     'power': 6000,
+     'title': '7: Процветание'},
+ 8: {'power': 7000,
+     'title': '8: Триумф'},
+ 9: {'power': 8000,
+     'title': '9: Восхищение'},
+ 10: {'power': 9000,
+      'title': '10: Торжество'}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='int', vtype='dict')

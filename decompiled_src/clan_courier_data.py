@@ -1,0 +1,27 @@
+#Embedded file name: /WORKSPACE/data/entities/common/cdata/clan_courier_data.o
+data = {1: {'dstPos': (440, 10, -1288),
+     'res': 5000,
+     'dstName': '神庙重建监工',
+     'pos': (670, 34, 325),
+     'guard': [((660, 35, 334), (723, 16, 61), 24532), ((673, 34, 318), (723, 16, 61), 24533)],
+     'monsterID': 24531,
+     'name': '驮运巨兽一号',
+     'direction': (723, 16, 61)},
+ 2: {'dstPos': (440, 10, -1288),
+     'res': 5000,
+     'dstName': '神庙重建监工',
+     'pos': (-398, 20, -4),
+     'guard': [((-409, 22, -4), (-374, 18, -10), 24535), ((-383, 19, -9), (-374, 18, -10), 24536)],
+     'monsterID': 24534,
+     'name': '镖车二号',
+     'direction': (-374, 18, -10)},
+ 3: {'dstPos': (440, 10, -1288),
+     'res': 5000,
+     'dstName': '神庙重建监工',
+     'pos': (-581, -88, -2320),
+     'guard': [((-592, -88, -2321), (-566, -86, -2243), 24538), ((-579, -89, -2308), (-566, -86, -2243), 24539)],
+     'monsterID': 24537,
+     'name': '驮运巨兽二号',
+     'direction': (-566, -86, -2243)}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='int', vtype='dict')

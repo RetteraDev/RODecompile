@@ -1,0 +1,27 @@
+#Embedded file name: /WORKSPACE/data/entities/common/cdata/chaos_battle_field_buff_lv_data.o
+data = {(1, 1): {'buffCnt': 1,
+          'prop': 6000,
+          'name': 'ÈÕÔÂ×£¸£'},
+ (1, 2): {'buffCnt': 1,
+          'prop': 6000,
+          'name': 'Ç¬À¤×£¸£'},
+ (2, 1): {'buffCnt': 2,
+          'prop': 3000,
+          'name': 'ÈÕÔÂ×£¸£'},
+ (2, 2): {'buffCnt': 2,
+          'prop': 3000,
+          'name': 'Ç¬À¤×£¸£'},
+ (3, 1): {'buffCnt': 5,
+          'prop': 960,
+          'name': 'ÈÕÔÂ×£¸£'},
+ (3, 2): {'buffCnt': 5,
+          'prop': 960,
+          'name': 'Ç¬À¤×£¸£'},
+ (4, 1): {'buffCnt': 10,
+          'prop': 40,
+          'name': 'ÈÕÔÂ×£¸£'},
+ (4, 2): {'buffCnt': 10,
+          'prop': 40,
+          'name': 'Ç¬À¤×£¸£'}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='tuple', vtype='dict')

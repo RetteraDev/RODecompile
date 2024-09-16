@@ -1,0 +1,25 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\common\cdata/week_activation_reward_data.o
+data = {(1, 39): {'activationMargins': (400000, 700000, 800000),
+           'bonusIds': (15861, 15862, 15863)},
+ (40, 44): {'activationMargins': (400000, 700000, 800000),
+            'bonusIds': (15861, 15862, 15863)},
+ (45, 48): {'activationMargins': (400000, 700000, 800000),
+            'bonusIds': (15861, 15862, 15863)},
+ (49, 58): {'activationMargins': (400000, 700000, 800000),
+            'bonusIds': (15861, 15862, 15863)},
+ (59, 59): {'activationMargins': (400000, 700000, 800000),
+            'bonusIds': (15861, 15862, 15863)},
+ (60, 68): {'activationMargins': (400000, 700000, 800000),
+            'bonusIds': (15861, 15862, 15863)},
+ (69, 69): {'activationMargins': (400000, 700000, 800000),
+            'bonusIds': (15861, 15862, 15863)},
+ (70, 78): {'activationMargins': (400000, 700000, 800000),
+            'bonusIds': (15861, 15862, 15863)},
+ (79, 79): {'activationMargins': (400000, 700000, 800000),
+            'bonusIds': (15861, 15862, 15863)},
+ (80, 88): {'activationMargins': (400000, 700000, 800000),
+            'bonusIds': (15861, 15862, 15863)},
+ (89, 89): {'activationMargins': (400000, 700000, 800000),
+            'bonusIds': (15861, 15862, 15863)}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='tuple', vtype='dict')

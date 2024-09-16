@@ -1,0 +1,11 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\client\helpers/tabooData.o
+originWordsName = ()
+originWordsBAllLv = ()
+originWordsBWorld = ()
+autoPushSystemWords = ()
+originWordsA = ()
+originWordsBNewbie = ()
+checkPathWaiguaList = ()
+originWordsC = ()
+originWordsBSingle = ()
+originWordsB = ('[\xd0\xa5|\xd1\x85|X|x][\\W]?(\xd1\x83|y|\xd0\xa3|Y)[\\W]?[\xd0\xb9|\xd0\x99|1|u|\xd0\x95\xd0\xb5|Ee]', '[\xd0\x9f|\xd0\xbf|P|p|n][\\W]?(\xd0\x98|\xd0\xb8|I|i|U|u|1)[\\W]?[\xd0\x97|\xd0\xb7|Z|z|3][\\W]?[\xd0\x94|\xd0\xb4|D|d]', '[\xd0\x91|\xd0\xb1|B|b][\\W]?(\xd0\xbb|\xd0\x9b|l|L)[\\W]?[\xd1\x8f|\xd0\xaf|ya|YA|yA|Ye]', '[\xd0\x9f|\xd0\xbf|P|p|n][\\W]?(\xd0\x98|\xd0\xb8|I|i|U|u|1)[\\W]?[\xd0\x97|\xd0\xb7|Z|z|3][\\W]?[\xd0\x94|\xd0\xb4|D|d]', '(^|\\s|\\W)(anus|bastard|blowjob|bollock|bukake|caca|cocain|cock|dick|dike|dildo|dyke|ejaculate|goatse|goddamn|goldenshower|handjob|heroin|herpes|inbred|incest|jerk|kike|kunt|kyke|masturbat|mofo|moron|nympho|nutsack|orgies|orgy|pedo|phalic|porn|prick|prostitute|rapist|rectal|rectum|rectus|retarded|rimjob|scrot|scum|semen|skag|skank|slut|sodom|sperm|sucka|thundercunt|tramp|transexual|turd|twat|vixen|wank|wench|whore|zoophil|abruti|andouille|bifle|batard|bicot|bougnoul|branle|chier|chinetoque|couille|duschnock|emmerd|encul|enflure|enfoir|grognasse|halouf|merde|nique|pignouf|schleu|tafiol|tappete|tarlouze|tocard|trouduc|youpin|arschloch|hure|schlampe|drecksau|ficken|fotze|votze|muschi|vergewaltigen|wichser|wixxer)', '(^|\\s|\\W)(anus|Bastard|Blowjob|Bollock|Bukake|Caca|Cocain|Cock|Dick|Dike|Dildo|Dyke|Ejaculate|Goatse|Goddamn|Goldenshower|Handjob|Heroin|Herpes|Inbred|Incest|Jerk|Kike|Kunt|Kyke|Masturbat|Mofo|Moron|Nympho|Nutsack|Orgies|Orgy|Pedo|Phalic|Porn|Prick|Prostitute|Rapist|Rectal|Rectum|Rectus|Retarded|Rimjob|Scrot|Scum|Semen|Skag|Skank|Slut|Sodom|Sperm|Sucka|Thundercunt|Tramp|Transexual|Turd|Twat|Vixen|Wank|Wench|Whore|Zoophil|Abruti|Andouille|Bifle|Batard|Bicot|Bougnoul|Branle|Chier|Chinetoque|Couille|Duschnock|Emmerd|Encul|Enflure|Enfoir|Grognasse|Halouf|Merde|Nique|Pignouf|Schleu|Tafiol|Tappete|Tarlouze|Tocard|Trouduc|Youpin|Arschloch|Hure|Schlampe|Drecksau|Ficken|Fotze|Votze|Muschi|Vergewaltigen|Wichser|Wixxer)')

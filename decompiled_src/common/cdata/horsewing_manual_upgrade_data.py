@@ -1,0 +1,28 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\common\cdata/horsewing_manual_upgrade_data.o
+data = {(220064, 9): {'materialSet': 712},
+ (220064, 10): {'materialSet': 712},
+ (220064, 11): {'materialSet': 712},
+ (220564, 9): {'materialSet': 712},
+ (220564, 10): {'materialSet': 712},
+ (220564, 11): {'materialSet': 712},
+ (225006, 9): {'materialSet': 158},
+ (225020, 7): {'materialSet': 159},
+ (225041, 9): {'materialSet': 158},
+ (225041, 10): {'materialSet': 158},
+ (225041, 11): {'materialSet': 158},
+ (225079, 9): {'materialSet': 158},
+ (225079, 10): {'materialSet': 158},
+ (225079, 11): {'materialSet': 158},
+ (225506, 9): {'materialSet': 158},
+ (225520, 7): {'materialSet': 159},
+ (225541, 9): {'materialSet': 158},
+ (225541, 10): {'materialSet': 158},
+ (225541, 11): {'materialSet': 158},
+ (225579, 9): {'materialSet': 158},
+ (225579, 10): {'materialSet': 158},
+ (225579, 11): {'materialSet': 158},
+ (656524, 9): {'materialSet': 158},
+ (656524, 10): {'materialSet': 158},
+ (656524, 11): {'materialSet': 158}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='tuple', vtype='dict')

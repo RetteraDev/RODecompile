@@ -1,0 +1,9 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\client\data/firework_data.o
+data = {1: {'duration': 180,
+     'fireworkYawOffset': 0,
+     'keepEff': 12420,
+     'fireworkDist': 50,
+     'model': 28001,
+     'fireworkYOffset': 50}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='int', vtype='dict')

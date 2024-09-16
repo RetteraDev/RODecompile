@@ -1,0 +1,27 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\common\cdata/hunt_ghost_config_data.o
+data = {'BigBoxExistTime': 120,
+ 'HUNT_GHOST_LEFT_DESC': 'Аленький цветочек:',
+ 'bigGhostMaxNum': 5,
+ 'bigTreasureBoxIds': (1490, 1491, 1492),
+ 'boxTypeMaxCount': {1: 3,
+                     2: 5},
+ 'boxTypeRate': {1: (0, 50),
+                 2: (51, 1000)},
+ 'distanceGrading': (500.0, 100.0, 15.0),
+ 'ghostNameInMap': 'По окончанию таймера Аленький цветочек будет готов к сбору',
+ 'huntGhostAreaNumber': 500,
+ 'huntGhostEndTime': '30 19 * * 5',
+ 'huntGhostFlagBoxId': 1493,
+ 'huntGhostLevel': 40,
+ 'huntGhostMaskConsumeCash': 10000,
+ 'huntGhostMateDistance': 30,
+ 'huntGhostMateRewardDistance': 300,
+ 'huntGhostMaxNumber': 100,
+ 'huntGhostStartTime': '00 19 * * 5',
+ 'ownerProtectRate': 50,
+ 'protectBuff': (55152, 5),
+ 'resistBuff': (55153, 60),
+ 'smallTreasureBoxIds': (1485, 1486, 1487, 1488, 1489),
+ 'totalRewardTimes': 5}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='string', vtype='int')

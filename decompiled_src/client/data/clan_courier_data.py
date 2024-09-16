@@ -1,0 +1,27 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\client\data/clan_courier_data.o
+data = {1: {'direction': (0, 0, 2.699806),
+     'dstName': 'Исчезнувшая реликвия духов',
+     'dstPos': (440, 10, -1288),
+     'guard': [((660, 35, 334), (0, 0, 2.626175), 24532), ((679, 33, 314), (0, 0, 2.626175), 24533)],
+     'monsterID': 24531,
+     'name': 'Бронированный варан',
+     'pos': (670, 34, 325),
+     'res': 1000},
+ 2: {'direction': (-374, 18, -10),
+     'dstName': 'Исчезнувшая реликвия духов',
+     'dstPos': (440, 10, -1288),
+     'guard': [((-409, 22, -4), (-374, 18, -10), 24535), ((-383, 19, -9), (-374, 18, -10), 24536)],
+     'monsterID': 24534,
+     'name': 'Бронированная тележка',
+     'pos': (-398, 20, -4),
+     'res': 1000},
+ 3: {'direction': (0, 0, 0),
+     'dstName': 'Исчезнувшая реликвия духов',
+     'dstPos': (440, 10, -1288),
+     'guard': [((-596, -88, -2320), (0, 0, 0), 24538), ((-579, -89, -2308), (0, 0, 0), 24539)],
+     'monsterID': 24537,
+     'name': 'Медведь-защитник',
+     'pos': (-581, -88, -2320),
+     'res': 1000}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='int', vtype='dict')

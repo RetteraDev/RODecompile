@@ -1,0 +1,28 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\common\cdata/pk_relation_data.o
+data = {(1, 1): {'canAtk': 0},
+ (1, 2): {'canAtk': 1},
+ (1, 3): {'canAtk': 1},
+ (1, 4): {'canAtk': 0},
+ (1, 5): {'canAtk': 0},
+ (2, 1): {'canAtk': 0},
+ (2, 2): {'canAtk': 1},
+ (2, 3): {'canAtk': 1},
+ (2, 4): {'canAtk': 0},
+ (2, 5): {'canAtk': 0},
+ (3, 1): {'canAtk': 1},
+ (3, 2): {'canAtk': 1},
+ (3, 3): {'canAtk': 1},
+ (3, 4): {'canAtk': 1},
+ (3, 5): {'canAtk': 1},
+ (4, 1): {'canAtk': 1},
+ (4, 2): {'canAtk': 1},
+ (4, 3): {'canAtk': 1},
+ (4, 4): {'canAtk': 1},
+ (4, 5): {'canAtk': 1},
+ (5, 1): {'canAtk': 0},
+ (5, 2): {'canAtk': 1},
+ (5, 3): {'canAtk': 1},
+ (5, 4): {'canAtk': 0},
+ (5, 5): {'canAtk': 0}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='tuple', vtype='dict')

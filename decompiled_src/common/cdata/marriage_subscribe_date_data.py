@@ -1,0 +1,28 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\common\cdata/marriage_subscribe_date_data.o
+data = {1: {'endTimeTuple': (19, 0),
+     'beginTimeTuple': (18, 0),
+     'disableInWeek': 0},
+ 2: {'endTimeTuple': (20, 0),
+     'beginTimeTuple': (19, 0),
+     'disableInWeek': 0},
+ 3: {'endTimeTuple': (21, 0),
+     'beginTimeTuple': (20, 0),
+     'disableInWeek': 0},
+ 4: {'endTimeTuple': (22, 0),
+     'beginTimeTuple': (21, 0),
+     'disableInWeek': 1},
+ 5: {'endTimeTuple': (23, 0),
+     'beginTimeTuple': (22, 0),
+     'disableInWeek': 0},
+ 6: {'endTimeTuple': (21, 0),
+     'beginTimeTuple': (19, 0),
+     'isMarriageGreat': 1,
+     'disableInWeek': 0,
+     'timeBlockList': (2, 3)},
+ 7: {'endTimeTuple': (23, 0),
+     'beginTimeTuple': (21, 0),
+     'isMarriageGreat': 1,
+     'disableInWeek': 0,
+     'timeBlockList': (4, 5)}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='int', vtype='dict')

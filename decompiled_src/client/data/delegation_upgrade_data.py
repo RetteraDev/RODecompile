@@ -1,0 +1,28 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\client\data/delegation_upgrade_data.o
+data = {19: {'fame': ((410, 3000),),
+      'rank': 1,
+      'rankTxt': 'D',
+      'titleFames': (0, 1000, 2000),
+      'titleNames': ('1 \xd1\x81\xd1\x82\xd1\x83\xd0\xbf\xd0\xb5\xd0\xbd\xd1\x8c', '2 \xd1\x81\xd1\x82\xd1\x83\xd0\xbf\xd0\xb5\xd0\xbd\xd1\x8c', '3 \xd1\x81\xd1\x82\xd1\x83\xd0\xbf\xd0\xb5\xd0\xbd\xd1\x8c')},
+ 22: {'fame': ((410, 33000),),
+      'rank': 2,
+      'rankTxt': 'C',
+      'titleFames': (3000, 13000, 23000),
+      'titleNames': ('1 \xd1\x81\xd1\x82\xd1\x83\xd0\xbf\xd0\xb5\xd0\xbd\xd1\x8c', '2 \xd1\x81\xd1\x82\xd1\x83\xd0\xbf\xd0\xb5\xd0\xbd\xd1\x8c', '3 \xd1\x81\xd1\x82\xd1\x83\xd0\xbf\xd0\xb5\xd0\xbd\xd1\x8c')},
+ 24: {'fame': ((410, 183000),),
+      'rank': 3,
+      'rankTxt': 'B',
+      'titleFames': (33000, 83000, 133000),
+      'titleNames': ('1 \xd1\x81\xd1\x82\xd1\x83\xd0\xbf\xd0\xb5\xd0\xbd\xd1\x8c', '2 \xd1\x81\xd1\x82\xd1\x83\xd0\xbf\xd0\xb5\xd0\xbd\xd1\x8c', '3 \xd1\x81\xd1\x82\xd1\x83\xd0\xbf\xd0\xb5\xd0\xbd\xd1\x8c')},
+ 26: {'fame': ((410, 1083000),),
+      'rank': 4,
+      'rankTxt': 'A',
+      'titleFames': (183000, 483000, 783000),
+      'titleNames': ('1 \xd1\x81\xd1\x82\xd1\x83\xd0\xbf\xd0\xb5\xd0\xbd\xd1\x8c', '2 \xd1\x81\xd1\x82\xd1\x83\xd0\xbf\xd0\xb5\xd0\xbd\xd1\x8c', '3 \xd1\x81\xd1\x82\xd1\x83\xd0\xbf\xd0\xb5\xd0\xbd\xd1\x8c')},
+ 9998: {'fame': ((410, 1083000),),
+        'rank': 5,
+        'rankTxt': 'S',
+        'titleFames': 1083000,
+        'titleNames': 'Лента'}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='int', vtype='dict')

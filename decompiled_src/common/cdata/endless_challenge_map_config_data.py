@@ -1,0 +1,27 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\common\cdata/endless_challenge_map_config_data.o
+data = {'fb_endless_bghm_animal': {'inDir': (0, 0, 1.84),
+                            'inPos': (-4236, 28, -3034),
+                            'primaryLevelName': 'Тлеющее ущелье'},
+ 'fb_endless_bghm_machine': {'inDir': (0, 0, 1.9),
+                             'inPos': (-4158, 25, -3074),
+                             'primaryLevelName': 'Тлеющее ущелье'},
+ 'fb_endless_bghm_water': {'inDir': (0, 0, 1.84),
+                           'inPos': (-4236, 28, -3034),
+                           'primaryLevelName': 'Тлеющее ущелье'},
+ 'fb_endless_dyd_barb': {'inDir': (0, 0, -0.4),
+                         'inPos': (105, 2.5, -153),
+                         'primaryLevelName': 'Зеленая жемчужина'},
+ 'fb_endless_dyd_life': {'inDir': (0, 0, -0.3),
+                         'inPos': (102, 2.5, -170),
+                         'primaryLevelName': 'Зеленая жемчужина'},
+ 'fb_endless_hdjt_ancient': {'inDir': (0, 0, -0.8),
+                             'inPos': (5307, -36, 8),
+                             'primaryLevelName': 'Алтарь Рэна'},
+ 'fb_endless_xrhh_demon': {'inDir': (0, 0, -2.5),
+                           'inPos': (5236, 60, -2367),
+                           'primaryLevelName': 'Цветочное море'},
+ 'fb_endless_ycys_machine': {'inDir': (0, 0, 0),
+                             'inPos': (-2982, 161, -974),
+                             'primaryLevelName': 'Железный шрам'}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='string', vtype='dict')

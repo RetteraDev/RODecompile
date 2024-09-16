@@ -1,0 +1,28 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\client\data/clan_war_relive_board_data.o
+data = {1: {'charType': 15205,
+     'modelId': 46036,
+     'name': 'Слабый ловец душ',
+     'radius': 2,
+     'scale': 1.0},
+ 2: {'charType': 15206,
+     'modelId': 46037,
+     'name': 'Обычный ловец душ',
+     'radius': 2,
+     'scale': 1.0},
+ 3: {'charType': 15207,
+     'modelId': 46038,
+     'name': 'Сильный ловец душ',
+     'radius': 2,
+     'scale': 1.0},
+ 4: {'charType': 15208,
+     'modelId': 46039,
+     'name': 'Благословленный ловец душ',
+     'radius': 2,
+     'scale': 0.6},
+ 5: {'charType': 15209,
+     'modelId': 46040,
+     'name': 'Ловец душ Куроми',
+     'radius': 2,
+     'scale': 0.6}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='int', vtype='dict')

@@ -1,0 +1,25 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\common\cdata/apprentice_target_lv_data.o
+data = {(25, 89): [18],
+ (40, 89): [6, 12],
+ (59, 89): [9],
+ (45, 89): [4],
+ (30, 89): [2,
+            3,
+            8,
+            16],
+ (49, 89): [7],
+ (35, 89): [15],
+ (19, 89): [19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            29],
+ (50, 89): [10, 11, 13],
+ (20, 89): [5]}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='tuple', vtype='list')

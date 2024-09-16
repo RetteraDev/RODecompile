@@ -1,0 +1,27 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\client\data/clan_war_event_limit_data.o
+data = {1: {'desc': "Выполните задание захватив <font color=\'#A8F000\'>Морские ворота</font> !",
+     'fortId': 10,
+     'name': 'Миссия Империи',
+     'score': 700},
+ 2: {'desc': "Выполните задание захватив <font color=\'#A8F000\'>Крепость молота</font> !",
+     'fortId': 20,
+     'name': 'Миссия Империи',
+     'score': 700},
+ 3: {'desc': "Выполните задание захватив <font color=\'#A8F000\'>Храм Атума</font> !",
+     'fortId': 30,
+     'name': 'Миссия Империи',
+     'score': 700},
+ 4: {'desc': "Выполните задание захватив <font color=\'#A8F000\'>Морские ворота</font> !",
+     'fortId': 10,
+     'name': 'Миссия Империи',
+     'score': 700},
+ 5: {'desc': "Выполните задание захватив <font color=\'#A8F000\'>Крепость молота</font> !",
+     'fortId': 20,
+     'name': 'Миссия Империи',
+     'score': 700},
+ 6: {'desc': "Выполните задание захватив <font color=\'#A8F000\'>Храм Атума</font> !",
+     'fortId': 30,
+     'name': 'Миссия Империи',
+     'score': 700}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='int', vtype='dict')

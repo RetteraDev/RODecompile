@@ -1,0 +1,376 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\client\guis/marryPlanOrderProxy.o
+import BigWorld
+from Scaleform import GfxValue
+import gametypes
+import gameglobal
+import uiConst
+import const
+import pinyinConvert
+import events
+from ui import gbk2unicode
+from uiProxy import UIProxy
+from gamestrings import gameStrings
+from asObject import ASObject
+from asObject import ASUtils
+from data import marriage_package_data as MPD
+from data import marriage_theme_data as MTD
+from data import marriage_fenwei_data as MFD
+from data import marriage_chedui_data as MCD
+from data import item_data as ID
+PLAN_BTN_NUM = 4
+PLAN_BTN_NUM_ENABLED = 4
+
+class MarryPlanOrderProxy(UIProxy):
+
+    def __init__(self, uiAdapter):
+        super(MarryPlanOrderProxy, self).__init__(uiAdapter)
+        self.widget = None
+        self.reset()
+        uiAdapter.registerEscFunc(uiConst.WIDGET_MARRY_PLAN_ORDER, self.hide)
+
+    def reset(self):
+        self.selectedBtn = None
+        self.dropMenuDict = {}
+
+    def _registerASWidget(self, widgetId, widget):
+        if widgetId == uiConst.WIDGET_MARRY_PLAN_ORDER:
+            self.widget = widget
+            self.initUI()
+
+    def clearWidget(self):
+        self.widget = None
+        self.uiAdapter.unLoadWidget(uiConst.WIDGET_MARRY_PLAN_ORDER)
+
+    def show(self):
+        if not self.widget:
+            self.uiAdapter.loadWidget(uiConst.WIDGET_MARRY_PLAN_ORDER)
+
+    def initUI(self):
+        self.initData()
+        self.initState()
+
+    def initData(self):
+        pass
+
+    def initState(self):
+        self.widget.defaultCloseBtn = self.widget.closeBtn
+        self.widget.mainMc.descList.itemRenderer = 'MarryPlanOrder_DescItem'
+        self.widget.mainMc.descList.lableFunction = self.descListItemFunction
+        self.widget.mainMc.descList.itemHeightFunction = self.descListItemHeightFunction
+        self.widget.mainMc.downList.itemRenderer = 'MarryPlanOrder_DownItem'
+        self.widget.mainMc.downList.lableFunction = self.downListItemFunction
+        self.widget.mainMc.downList.column = 2
+        self.widget.mainMc.downList.itemHeight = 28
+        self.widget.mainMc.downList.itemWidth = 311
+        self.widget.mainMc.downList.dataArray = []
+        self.widget.mainMc.downList.addEventListener(events.SCROLL, self.handleScrollDropDown, False, 0, True)
+        self.widget.mainMc.confirmBtn.addEventListener(events.BUTTON_CLICK, self.handleConfirmBtnClick, False, 0, True)
+        for i in xrange(0, PLAN_BTN_NUM):
+            btn = getattr(self.widget.mainMc, 'planBtn' + str(i))
+            if btn:
+                btn.data = i
+                btn.addEventListener(events.BUTTON_CLICK, self.handleBtnClick, False, 0, True)
+                btn.enabled = i < PLAN_BTN_NUM_ENABLED
+
+        self.widget.mainMc.planBtn3.enabled = self.widget.mainMc.planBtn3.enabled and gameglobal.rds.configData.get('enableMarriageGreat', False)
+        basePackageBtn = [self.widget.mainMc.planBtn0, self.widget.mainMc.planBtn1, self.widget.mainMc.planBtn2]
+        for i, btn in enumerate(basePackageBtn):
+            btnName = MPD.data.get((gametypes.MARRIAGE_TYPE_PACKAGE, i + 1), {}).get('totalPrice', '')
+            btn.label = btnName
+
+        self.widget.mainMc.planBtn3.label = MPD.data.get((gametypes.MARRIAGE_TYPE_GREAT, gametypes.MARRIAGE_GREAT_SUB_TYPE_DEFAULT), {}).get('totalPrice', '')
+        if hasattr(gameglobal.rds.ui.marryPlanSelect, 'selectMarryType'):
+            self.setSelIndex(gameglobal.rds.ui.marryPlanSelect.selectMarryType)
+        else:
+            self.setSelIndex(0)
+
+    def refreshInfo(self):
+        if self.hasBaseData():
+            self.refreshDownList()
+            self.refreshDescList()
+
+    def getCurSelectType(self):
+        if self.selectedBtn:
+            return int(self.selectedBtn.data) + 1
+
+    def getDescData(self):
+        dArray = []
+        marriageType = self.getMarriageType()
+        mData = MPD.data.get(marriageType, {})
+        for i, desc in enumerate(mData.get('desc', ())):
+            info = {'desc': desc,
+             'index': i}
+            dArray.append(info)
+
+        return dArray
+
+    def descListItemFunction(self, *arg):
+        info = ASObject(arg[3][0])
+        itemMc = ASObject(arg[3][1])
+        if info and itemMc:
+            itemMc.descTxt.htmlText = info.desc
+
+    def descListItemHeightFunction(self, *arg):
+        if self.hasBaseData():
+            info = ASObject(arg[3][0])
+            descItem = self.widget.getInstByClsName('MarryPlanOrder_DescItem')
+            descItem.descTxt.htmlText = info.desc
+            return GfxValue(descItem.descTxt.textHeight)
+
+    def hasBaseData(self):
+        if self.widget:
+            return True
+        else:
+            return False
+
+    def refreshDownList(self):
+        if self.hasBaseData():
+            dataList = self.getDownListData()
+            self.widget.mainMc.downList.dataArray = dataList
+            self.widget.mainMc.downList.validateNow()
+
+    def refreshDescList(self):
+        if self.hasBaseData():
+            dataList = self.getDescData()
+            self.widget.mainMc.descList.dataArray = dataList
+            self.widget.mainMc.descList.validateNow()
+
+    def getDownListData(self):
+        return [{'type': gametypes.MARRIAGE_PACKAGE_INDEX_ZHUTI},
+         {'type': gametypes.MARRIAGE_PACKAGE_INDEX_CHEDUI},
+         {'type': gametypes.MARRIAGE_PACKAGE_INDEX_FENWEI},
+         {'type': gametypes.MARRIAGE_PACKAGE_INDEX_XL_YIFU},
+         {'type': gametypes.MARRIAGE_PACKAGE_INDEX_XN_YIFU},
+         {'type': gametypes.MARRIAGE_PACKAGE_INDEX_BL_YIFU},
+         {'type': gametypes.MARRIAGE_PACKAGE_INDEX_BN_YIFU}]
+
+    def downListItemFunction(self, *arg):
+        info = ASObject(arg[3][0])
+        itemMc = ASObject(arg[3][1])
+        if itemMc and info:
+            titleDesc = {gametypes.MARRIAGE_PACKAGE_INDEX_ZHUTI: gameStrings.MARRY_SETTING_TITLE_ZHUTI,
+             gametypes.MARRIAGE_PACKAGE_INDEX_CHEDUI: gameStrings.MARRY_SETTING_TITLE_CHEDUI,
+             gametypes.MARRIAGE_PACKAGE_INDEX_FENWEI: gameStrings.MARRY_SETTING_TITLE_FENWEI,
+             gametypes.MARRIAGE_PACKAGE_INDEX_XL_YIFU: gameStrings.MARRY_SETTING_TITLE_XL_YIFU,
+             gametypes.MARRIAGE_PACKAGE_INDEX_XN_YIFU: gameStrings.MARRY_SETTING_TITLE_XN_YIFU,
+             gametypes.MARRIAGE_PACKAGE_INDEX_BL_YIFU: gameStrings.MARRY_SETTING_TITLE_BL_YIFU,
+             gametypes.MARRIAGE_PACKAGE_INDEX_BN_YIFU: gameStrings.MARRY_SETTING_TITLE_BN_YIFU}
+            itemMc.titleName.htmlText = titleDesc.get(info.type, '')
+            self.dropMenuDict[info.type] = itemMc.downMenu
+            itemMc.downMenu.dropDownLayer = 1
+            itemMc.downMenu.addEventListener(events.INDEX_CHANGE, self.handleSelectDropMenu, False, 0, True)
+            dData = self.refreshDropMenuData(info.type)
+            itemMc.dataType = info.type
+            itemMc.previewBtn.addEventListener(events.BUTTON_CLICK, self.handlePreviewBtnClick, False, 0, True)
+            itemMc.downMenu.selectedIndex = self.getEnabledIndex(dData, 1)
+
+    def setMenuIndex(self, dataType, selIndex):
+        downMenu = self.dropMenuDict[dataType]
+        if downMenu:
+            downMenu.selectedIndex = selIndex
+
+    def getEnabledIndex(self, dataList, index):
+        return self.uiAdapter.marryPlanSetting.getEnabledIndex(dataList, index)
+
+    def handleSelectDropMenu(self, *arg):
+        if self.hasBaseData():
+            e = ASObject(arg[3][0])
+            t = e.currentTarget
+            itemMc = t.parent
+            if itemMc.dataType == gametypes.MARRIAGE_PACKAGE_INDEX_ZHUTI:
+                refreshDropMenuType = [gametypes.MARRIAGE_PACKAGE_INDEX_CHEDUI,
+                 gametypes.MARRIAGE_PACKAGE_INDEX_FENWEI,
+                 gametypes.MARRIAGE_PACKAGE_INDEX_XL_YIFU,
+                 gametypes.MARRIAGE_PACKAGE_INDEX_XN_YIFU,
+                 gametypes.MARRIAGE_PACKAGE_INDEX_BL_YIFU,
+                 gametypes.MARRIAGE_PACKAGE_INDEX_BN_YIFU]
+                for _type in refreshDropMenuType:
+                    self.refreshDropMenuData(_type)
+
+    def refreshDropMenuData(self, dataType):
+        dData = []
+        marriageType = self.getMarriageType()
+        mData = MPD.data.get(marriageType, {})
+        dropMenu = self.dropMenuDict.get(dataType, None)
+        if not dropMenu:
+            return dData
+        else:
+            oldIndex = dropMenu.selectedIndex
+            if dataType == gametypes.MARRIAGE_PACKAGE_INDEX_ZHUTI:
+                zhutiIds = mData.get('zhuti', ())
+                for i, zId in enumerate(zhutiIds):
+                    _data = MTD.data.get(zId, {})
+                    _info = {'label': _data.get('name', ''),
+                     'index': i + 1,
+                     'data': zId}
+                    dData.append(_info)
+
+            curZhutiData = self.getDataFromType(gametypes.MARRIAGE_PACKAGE_INDEX_ZHUTI)
+            zData = MTD.data.get(curZhutiData.data, {}) if curZhutiData else None
+            if zData:
+                if dataType == gametypes.MARRIAGE_PACKAGE_INDEX_CHEDUI:
+                    cheduiIds = mData.get('chedui', ())
+                    zCheduiIds = zData.get('chedui', ())
+                    for i, cId in enumerate(cheduiIds):
+                        if cId not in zCheduiIds:
+                            continue
+                        _data = MCD.data.get(cId, {})
+                        _info = {'label': _data.get('name', ''),
+                         'index': i + 1,
+                         'data': cId}
+                        dData.append(_info)
+
+                elif dataType == gametypes.MARRIAGE_PACKAGE_INDEX_FENWEI:
+                    fenweiIds = mData.get('fenwei', ())
+                    zFenweiIds = zData.get('fenwei', ())
+                    for i, fId in enumerate(fenweiIds):
+                        if fId not in zFenweiIds:
+                            continue
+                        _data = MFD.data.get(fId, {})
+                        _info = {'label': _data.get('name', ''),
+                         'index': i + 1,
+                         'data': fId}
+                        dData.append(_info)
+
+                elif dataType == gametypes.MARRIAGE_PACKAGE_INDEX_XL_YIFU:
+                    itemIds = mData.get('xlYifu', ())
+                    zItemIds = zData.get('xlYifu', ())
+                    for i, itemId in enumerate(itemIds):
+                        if itemId not in zItemIds:
+                            continue
+                        _data = ID.data.get(itemId, {})
+                        _info = {'label': _data.get('name', ''),
+                         'index': i + 1,
+                         'data': itemId}
+                        dData.append(_info)
+
+                elif dataType == gametypes.MARRIAGE_PACKAGE_INDEX_XN_YIFU:
+                    itemIds = mData.get('xnYifu', ())
+                    zItemIds = zData.get('xnYifu', ())
+                    for i, itemId in enumerate(itemIds):
+                        if itemId not in zItemIds:
+                            continue
+                        _data = ID.data.get(itemId, {})
+                        _info = {'label': _data.get('name', ''),
+                         'index': i + 1,
+                         'data': itemId}
+                        dData.append(_info)
+
+                elif dataType == gametypes.MARRIAGE_PACKAGE_INDEX_BL_YIFU:
+                    itemIds = mData.get('blYifu', ())
+                    zItemIds = zData.get('blYifu', ())
+                    for i, itemId in enumerate(itemIds):
+                        if itemId not in zItemIds:
+                            continue
+                        _data = ID.data.get(itemId, {})
+                        _info = {'label': _data.get('name', ''),
+                         'index': i + 1,
+                         'data': itemId}
+                        dData.append(_info)
+
+                elif dataType == gametypes.MARRIAGE_PACKAGE_INDEX_BN_YIFU:
+                    itemIds = mData.get('bnYifu', ())
+                    zItemIds = zData.get('bnYifu', ())
+                    for i, itemId in enumerate(itemIds):
+                        if itemId not in zItemIds:
+                            continue
+                        _data = ID.data.get(itemId, {})
+                        _info = {'label': _data.get('name', ''),
+                         'index': i + 1,
+                         'data': itemId}
+                        dData.append(_info)
+
+            dropMenu.menuRowCount = len(dData) if len(dData) < 5 else 5
+            ASUtils.setDropdownMenuData(dropMenu, dData)
+            dropMenu.selectedIndex = self.getEnabledIndex(dData, oldIndex)
+            return dData
+
+    def handleScrollDropDown(self, *arg):
+        if self.hasBaseData():
+            items = self.widget.mainMc.downList.items
+            for itemMc in items:
+                itemMc.downMenu.close()
+
+    def setSelIndex(self, index):
+        if not self.hasBaseData():
+            return
+        if self.selectedBtn:
+            self.selectedBtn.selected = False
+        btn = getattr(self.widget.mainMc, 'planBtn' + str(int(index)))
+        if btn:
+            self.selectedBtn = btn
+            self.selectedBtn.selected = True
+        self.refreshInfo()
+
+    def handleBtnClick(self, *arg):
+        e = ASObject(arg[3][0])
+        t = e.target
+        self.setSelIndex(t.data)
+
+    def handleConfirmBtnClick(self, *arg):
+        p = BigWorld.player()
+        p.cell.queryMarriageSubcribeDateMap(0, gametypes.MARRIAGE_QUERY_DATE_ORDER)
+
+    def getCurSelectData(self):
+        items = self.widget.mainMc.downList.items
+        zhutiData = 0
+        fenweiData = 0
+        xlYifuData = 0
+        xnYifuData = 0
+        blYifuData = 0
+        bnYifuData = 0
+        cheduiData = 0
+        for i, itemMc in enumerate(items):
+            info = self.widget.mainMc.downList.dataArray[i]
+            data = itemMc.downMenu.dataProvider[itemMc.downMenu.selectedIndex]
+            if info.type == gametypes.MARRIAGE_PACKAGE_INDEX_ZHUTI:
+                zhutiData = data.index
+            elif info.type == gametypes.MARRIAGE_PACKAGE_INDEX_CHEDUI:
+                cheduiData = data.index
+            elif info.type == gametypes.MARRIAGE_PACKAGE_INDEX_FENWEI:
+                fenweiData = data.index
+            elif info.type == gametypes.MARRIAGE_PACKAGE_INDEX_XL_YIFU:
+                xlYifuData = data.index
+            elif info.type == gametypes.MARRIAGE_PACKAGE_INDEX_XN_YIFU:
+                xnYifuData = data.index
+            elif info.type == gametypes.MARRIAGE_PACKAGE_INDEX_BL_YIFU:
+                blYifuData = data.index
+            elif info.type == gametypes.MARRIAGE_PACKAGE_INDEX_BN_YIFU:
+                bnYifuData = data.index
+
+        return [zhutiData,
+         fenweiData,
+         xlYifuData,
+         xnYifuData,
+         blYifuData,
+         bnYifuData,
+         cheduiData]
+
+    def syncMarriageSubcribeDateMap(self, subscribeDateMap, subscribeDateVersion):
+        planParam = self.getCurSelectData()
+        marriageType = self.getMarriageType()
+        self.uiAdapter.marryTimeOrder.show(subscribeDateMap, planParam, marriageType)
+
+    def handlePreviewBtnClick(self, *arg):
+        if self.hasBaseData():
+            e = ASObject(arg[3][0])
+            t = e.currentTarget
+            itemMc = t.parent
+            data = itemMc.downMenu.dataProvider[itemMc.downMenu.selectedIndex]
+            gameglobal.rds.ui.marryPlanPreview.show(itemMc.dataType, itemMc.downMenu.dataProvider, itemMc.downMenu.selectedIndex)
+
+    def getDataFromType(self, dataType):
+        dropMenu = self.dropMenuDict.get(dataType, None)
+        if not dropMenu:
+            return
+        elif dropMenu.selectedIndex >= 0 and dropMenu.selectedIndex < len(dropMenu.dataProvider):
+            return dropMenu.dataProvider[dropMenu.selectedIndex]
+        else:
+            return
+
+    def getMarriageType(self):
+        if self.getCurSelectType() == 4:
+            marriageType = (gametypes.MARRIAGE_TYPE_GREAT, gametypes.MARRIAGE_GREAT_SUB_TYPE_DEFAULT)
+        else:
+            marriageType = (gametypes.MARRIAGE_TYPE_PACKAGE, self.getCurSelectType())
+        return marriageType

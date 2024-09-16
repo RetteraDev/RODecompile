@@ -1,0 +1,27 @@
+#Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\client\data/qiren_role_group_data.o
+data = {1: {'displayItemId': 33155,
+     'finishedDesc': 'Наследник престола лис!',
+     'groupBonusClues': (99999,),
+     'groupBonusId': 10645,
+     'groupType': 1,
+     'roleIdList': (6, 250),
+     'showBonusClues': (99999,),
+     'unfinishedDesc': 'В чем-то похожий на представителей царствующего дома лисиц, но с другим прошлым и с другим характером, он также попытался изменить судьбу лисьего народа.'},
+ 4: {'displayItemId': 300155,
+     'finishedDesc': 'Начинайте поиск необычных людей Облачного мира!',
+     'groupBonusClues': (99999,),
+     'groupBonusId': 10645,
+     'groupType': 3,
+     'roleIdList': (450, 400, 500, 501),
+     'showBonusClues': (99999,),
+     'unfinishedDesc': 'Такие разные люди Облачного мира'},
+ 5: {'displayItemId': 300155,
+     'finishedDesc': 'Идите в подземелье и откройте секрет босса!',
+     'groupBonusClues': (99999,),
+     'groupBonusId': 10645,
+     'groupType': 2,
+     'roleIdList': (800, 850, 451, 401),
+     'showBonusClues': (99999,),
+     'unfinishedDesc': 'Вы знаете секрет того, кто живет в глубине подземелья?'}}
+from utils import convertToConst
+data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='int', vtype='dict')

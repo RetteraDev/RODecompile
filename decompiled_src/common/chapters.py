@@ -1,0 +1,13 @@
+#Embedded file name: I:/bag/tmp/tw2/res/entities\common/chapters.o
+NEVER = 0
+CLIENT_ONLY = 2
+CLIENT_SERVER = 3
+CHAT_CONSOLE = 4
+ENTITY_LOADER = 5
+BASIC_NPC = 6
+ALL = (CLIENT_ONLY,
+ CLIENT_SERVER,
+ CHAT_CONSOLE,
+ ENTITY_LOADER,
+ BASIC_NPC)
+DEFAULT = BASIC_NPC
