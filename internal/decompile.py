@@ -41,7 +41,6 @@ def decompile(co, dest_path, src_path):
             uncompyle2.uncompyle("2.7", co, out=f)
         except:
             logging.warning("Particially decompiled {}".format(src_dest_file))
-            uncompyle2.uncompyle("2.7", co, out=f, showasm=True)
 
 add_dir("decompiled_src")
 os.chdir("decompiled_src")
