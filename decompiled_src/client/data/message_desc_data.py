@@ -1,5 +1,5 @@
 #Embedded file name: C:/Users/user/Documents/WORK/roB/build/tmp/tw2/res/entities\client\data/message_desc_data.o
-data = {'ACCEPT_GROUP_NOTIFY_WITH_ONE_MEMBER': 'В данный момент ваша %s состоит только из вас. Если вы примете приглашение, эта %s будет расформирована.',
+data = {'ACCEPT_GROUP_NOTIFY_WITH_ONE_MEMBER': 'В данный момент ваш %s состоит только из вас. Если вы примете приглашение, этот %s будет расформирован.',
  'APPLY_GROUP_NOTIFY_WITH_ONE_MEMBER': 'В текущ. %s только вы и больше некого. Хотите выйти из %s и отправить запрос?',
  'ARENA_PLAYOFFS_LV_UP_DOUBLE_CHECK_NOTIFY': 'Вы в отряде для состязаний плей-офф на Арене. Повышение уровня может привести к исключению из отряда или даже его роспуску. Все равно продолжить?',
  'BUILD_INTIMACY_CNT_MSG': ', мы %s-я пара на сервере',
