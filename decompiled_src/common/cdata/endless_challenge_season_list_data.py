@@ -118,12 +118,12 @@ data = {0: {'beginDate': '22 июня 2017 года',
       'endTime': '59 23 30 6 * 2021',
       'stopDate': '2021/6/29 23:59',
       'stopTime': '59 23 29 6 * 2021'},
- 25: {'beginDate': '2024/7/8 12:00',
-      'beginTime': '0 12 8 7 * 2024',
-      'desc': 'Сезон XXII 2024.7.8~2024.10.5',
-      'endDate': '2024/10/5 23:59',
-      'endTime': '59 23 5 10 * 2024',
-      'stopDate': '2024/10/5 23:59',
-      'stopTime': '59 23 5 10 * 2024'}}
+ 26: {'beginDate': '2024/10/14 11:00',
+      'beginTime': '0 11 14 10 * 2024',
+      'desc': 'Сезон XXIII 2024.10.14~2025.1.11',
+      'endDate': '2025/1/11 23:59',
+      'endTime': '59 23 11 1 * 2025',
+      'stopDate': '2025/1/11 23:59',
+      'stopTime': '59 23 21 1 * 2025'}}
 from utils import convertToConst
 data = convertToConst(data, name='_'.join(__name__.split('.')), ktype='int', vtype='dict')
